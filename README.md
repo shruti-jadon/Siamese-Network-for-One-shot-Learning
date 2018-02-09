@@ -9,4 +9,7 @@ One way of addressing problems in One Shot learning is to develop specific featu
 
 Since One Shot Learning focuses on models which have a nonparametric approach of evaluation, we came across Kafnets(kernel based non-parametric activation functions) that have shown initial promise in this domain of training neural networks using different forms of activation functions; so as to increase non-linearity, therefore decreasing the number of layers, and increasing the accuracy in a lot of cases. This paper(https://arxiv.org/abs/1707.04035) has proposed two activation functions KAF and KAF2D, and focuses on their nature of continuity and differentiability. We have taken help of implementations of these activation functions and compared their effectiveness against traditional ones when used in the context of One Shot learning.
 
+## MNIST Embeddings in 2D Space
+![alt text](https://github.com/shruti-jadon/OneShotLearning/blob/master/embeddings_Combined.jpg)
+## MNIST LOSS Results
 ![alt text](https://github.com/shruti-jadon/OneShotLearning/blob/master/MNISTLoss.jpg)
