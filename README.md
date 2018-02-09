@@ -8,7 +8,7 @@ One-shot learning cane be used for object categorization problem in computer vis
 How to Run it:
 ```
 Clone this repository
-go to direcetory
+go to directory
 run train_mnist.py 
 run test_contrastive.py
 ```
