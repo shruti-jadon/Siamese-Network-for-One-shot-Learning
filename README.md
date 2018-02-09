@@ -5,7 +5,18 @@ This is the primary motivation behind One Shot Learning; to train a model with f
 
 One-shot learning cane be used for object categorization problem in computer vision. Whereas most machine learning based object categorization algorithms require training on hundreds or thousands of images and very large datasets, one-shot learning aims to learn information about object categories from one, or only a few, training images.
 
-One way of addressing problems in One Shot learning is to develop specific features relevant to the domain of the problem; features that possess discriminative properties particular to a given target task. However, the problem with this approach is the lack of generalization that comes along with making assumptions about the structure of the input data. In this project, we make use of an approach similar to while simultaneously evaluating different activation functions[KAFNETS] that may be better suited to this task. The overall strategy we apply is two fold; train a discriminative deep learning model on a collection of data with similar/dissimilar pairs. Then, using the learned feature mappings, we can evaluate new categories.
+How to Run it:
+```
+Clone this repository
+go to direcetory
+run train_mnist.py 
+run test_contrastive.py
+```
+The output of train_mnist will be saved as pickle, you can modify number of epochs.
+```
+To test the embeddings obtained score:
+run intracluster_score.py
+```
 
 Since One Shot Learning focuses on models which have a nonparametric approach of evaluation, we came across Kafnets(kernel based non-parametric activation functions) that have shown initial promise in this domain of training neural networks using different forms of activation functions; so as to increase non-linearity, therefore decreasing the number of layers, and increasing the accuracy in a lot of cases. This paper(https://arxiv.org/abs/1707.04035) has proposed two activation functions KAF and KAF2D, and focuses on their nature of continuity and differentiability. We have taken help of implementations of these activation functions and compared their effectiveness against traditional ones when used in the context of One Shot learning.
 
