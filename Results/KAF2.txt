@@ -1,0 +1,6 @@
+Args: Namespace(batchsize=128, cuda=False, epoch=1, model='', no_cuda=False, train_plot=True)
+Train Epoch: 1 [0/108400 (0%)]	Loss: 0.219242	Took: 0.67
+Train Epoch: 1 [16384/108400 (15%)]	Loss: 0.074730	Took: 62.74
+Train Epoch: 1 [32768/108400 (30%)]	Loss: 0.066408	Took: 69.23
+Train Epoch: 1 [49152/108400 (45%)]	Loss: 0.065814	Took: 65.37
+Train Epoch: 1 [65536/108400 (60%)]	Loss: 0.052127	Took: 63.21
