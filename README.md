@@ -3,6 +3,15 @@ Humans learn new things with a very small set of examples — e.g. a child c
 
 This is the primary motivation behind One Shot Learning; to train a model with fewer examples but generalize to unfamiliar categories without extensive retraining.
 
+## Citation
+If you find our code useful, please consider citing our work using the bibtex:
+```
+@article{Jadon_Srinivasan_2019, title={Siamese Networks for One Shot Learning using Kernel-Based Activation functions}, 
+url={http://rgdoi.net/10.13140/RG.2.2.15327.92322}, 
+DOI={10.13140/rg.2.2.15327.92322}, journal={Unpublished}, publisher={Unpublished}, 
+author={Jadon, Shruti and Srinivasan, Aditya Arcot}, year={2019} }
+```
+
 One-shot learning cane be used for object categorization problem in computer vision. Whereas most machine learning based object categorization algorithms require training on hundreds or thousands of images and very large datasets, one-shot learning aims to learn information about object categories from one, or only a few, training images.
 
 How to Run it:
