@@ -1,4 +1,4 @@
-# OneShotLearning
+# Improving Siamese Networks for One Shot Learning using Kernel Based Activation functions
 Humans learn new things with a very small set of examples — e.g. a child can generalize the concept of a “Dog” from a single picture but a machine learning system needs a lot of examples to learn its features. In particular, when presented with stimuli, people seem to be able to understand new concepts quickly and then recognize variations on these concepts in future percepts. Machine learning as a field has been highly successful at a variety of tasks such as classification, web search, image and speech recognition. Often times however, these models do not do very well in the regime of low data. ‘
 
 This is the primary motivation behind One Shot Learning; to train a model with fewer examples but generalize to unfamiliar categories without extensive retraining.
