@@ -12,6 +12,7 @@ from torch.autograd import Variable
 from torchvision import transforms
 import pickle
 
+
 class Dataset(object):
 
     def __init__(self, x0, x1, label):
@@ -73,6 +74,7 @@ def create_iterator(data, label, batchsize, shuffle=False):
     ret = Dataset(x0, x1, label)
     return ret
 
+
 def plot_mnist(numpy_all, numpy_labels,name="../Results/embeddings_plot.png"):
         c = ['#ff0000', '#ffff00', '#00ff00', '#00ffff', '#0000ff',
              '#ff00ff', '#990000', '#999900', '#009900', '#009999']
@@ -83,6 +85,7 @@ def plot_mnist(numpy_all, numpy_labels,name="../Results/embeddings_plot.png"):
         plt.legend(['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'])
         plt.savefig(name)
 
+
 def plot_loss(train_loss,name="../Results/train_loss.png"):
     plt.gca().cla()
     plt.plot(train_loss, label="train loss")
@@ -90,6 +93,7 @@ def plot_loss(train_loss,name="../Results/train_loss.png"):
     plt.draw()
     plt.savefig(name)
     plt.gca().clear()
+
 
 def main():
     parser = argparse.ArgumentParser()
@@ -148,7 +152,6 @@ def main():
 
     def train_model(epochs):
         train_loss = []
-        #running_loss=0.0
         for epoch in range(epochs):
             print('Train Epoch:'+str(epoch)+"------------------")
             for batch_idx, (x0, x1, labels) in enumerate(train_loader):
@@ -166,7 +169,7 @@ def main():
                     print('Batch id: {} [{}/{} ({:.0f}%)]\tLoss: {:.6f}'.format(
                         batch_idx, batch_idx * len(labels), len(train_loader.dataset),
                         100. * batch_idx / len(train_loader), loss.item()))
-            torch.save(model.state_dict(), './weights/model-epoch-%s.pth' % epoch)
+                    torch.save(model.state_dict(), './weights/model-epoch-%s.pth' % epoch)
         print ("finished_training")
         return train_loss
 
@@ -174,14 +177,14 @@ def main():
         model.eval()
         all = []
         all_labels = []
-        #original_labels=[]
-        for batch_idx, (x, labels) in enumerate(test_loader):
-            if args.cuda:
-                x, labels = x.cuda(), labels.cuda()
-            x, labels = Variable(x, volatile=True), Variable(labels)
-            output = model.forward_once(x)
-            all.extend(output.data.cpu().numpy().tolist())
-            all_labels.extend(labels.data.cpu().numpy().tolist())
+        with torch.nograd():
+            for batch_idx, (x, labels) in enumerate(test_loader):
+                if args.cuda:
+                    x, labels = x.cuda(), labels.cuda()
+                x, labels = Variable(x, volatile=True), Variable(labels)
+                output = model.forward_once(x)
+                all.extend(output.data.cpu().numpy().tolist())
+                all_labels.extend(labels.data.cpu().numpy().tolist())
 
         numpy_all = np.array(all)
         numpy_labels = np.array(all_labels)
@@ -192,15 +195,14 @@ def main():
         filehandler = open(name_file,"wb")
         dict_pickle={}
         numpy_all, numpy_labels = test_model(model)
-        dict_pickle["numpy_all"]=numpy_all
-        dict_pickle["numpy_labels"]=numpy_labels
-        pickle.dump(dict_pickle,filehandler)
+        dict_pickle["numpy_all"] = numpy_all
+        dict_pickle["numpy_labels"] = numpy_labels
+        pickle.dump(dict_pickle, filehandler)
         plot_mnist(numpy_all, numpy_labels)
         filehandler.close()
 
     if len(args.model) == 0:
-        train_loss = []
-        train_loss=train_model(args.epoch)
+        train_loss = train_model(args.epoch)
         if args.train_plot:
             plot_loss(train_loss)
         
@@ -210,7 +212,7 @@ def main():
         model.load_state_dict(saved_model)
         if args.cuda:
             model.cuda()
-        testing_plots("../Results/embeddings.pickle",model)
+        testing_plots("./../Results/embeddings.pickle", model)
     
 
 if __name__ == '__main__':

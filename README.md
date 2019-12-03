@@ -18,8 +18,8 @@ How to Run it:
 ```
 Clone this repository
 go to directory
-run train_mnist.py 
-run test_contrastive.py
+run Model/train_mnist.py 
+run Model/test_contrastive.py
 ```
 The output of train_mnist will be saved as pickle, you can modify number of epochs.
 ```
@@ -30,6 +30,6 @@ run intracluster_score.py
 Since One Shot Learning focuses on models which have a nonparametric approach of evaluation, we came across Kafnets(kernel based non-parametric activation functions) that have shown initial promise in this domain of training neural networks using different forms of activation functions; so as to increase non-linearity, therefore decreasing the number of layers, and increasing the accuracy in a lot of cases. This paper(https://arxiv.org/abs/1707.04035) has proposed two activation functions KAF and KAF2D, and focuses on their nature of continuity and differentiability. We have taken help of implementations of these activation functions and compared their effectiveness against traditional ones when used in the context of One Shot learning.
 
 ## MNIST Embeddings in 2D Space
-![alt text](https://github.com/shruti-jadon/OneShotLearning/blob/master/Images_git/embeddings_Combined.jpg)
+![alt text](https://github.com/shruti-jadon/OneShotLearning/blob/master/Images/embeddings_Combined.jpg)
 ## MNIST LOSS Results
-![alt text](https://github.com/shruti-jadon/OneShotLearning/blob/master/Images_git/MNISTLoss.jpg)
+![alt text](https://github.com/shruti-jadon/OneShotLearning/blob/master/Images/MNISTLoss.jpg)
